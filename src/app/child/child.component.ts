@@ -6,6 +6,7 @@ import {
   ElementRef,
   QueryList,
 } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-child',
@@ -14,6 +15,7 @@ import {
 })
 export class ChildComponent implements AfterContentInit {
   data = 'kusuma';
+  subject = new Subject<String>();
   ngAfterContentInit(): void {
     console.log('hai', this.projectContent?.nativeElement.innerText);
     //for content child
@@ -40,6 +42,5 @@ export class ChildComponent implements AfterContentInit {
 
   setData(data: string) {
     this.data = data;
-    // return this.data;
   }
 }
